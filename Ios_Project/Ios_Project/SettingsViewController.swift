@@ -13,18 +13,22 @@ class SettingsViewController: UIViewController {
         if #available(iOS 13.0, *) {
              let appDelegate = UIApplication.shared.windows.first
                  if sender.isOn {
-                    appDelegate?.overrideUserInterfaceStyle = .dark
+                     appDelegate?.overrideUserInterfaceStyle = .dark
                       return
                  }
              appDelegate?.overrideUserInterfaceStyle = .light
              return
         }
     }
+    @IBOutlet weak var UISwitch: UISwitch!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (UIApplication.shared.windows.first?.overrideUserInterfaceStyle == .dark) {
+            UISwitch.isOn = true
+        }
         self.title = "Paramètres"
 
         // Do any additional setup after loading the view.

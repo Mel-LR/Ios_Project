@@ -239,6 +239,9 @@
                             <constraint firstItem="lPD-Ef-wP0" firstAttribute="leading" secondItem="IVh-3A-QUH" secondAttribute="leading" constant="50" id="nJV-Zt-qh8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="UISwitch" destination="j9N-wP-rgR" id="MzZ-d4-3rc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qpv-78-B17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
