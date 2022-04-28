@@ -9,6 +9,19 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBAction func darkModeSwitch(_ sender: UISwitch) {
+        if #available(iOS 13.0, *) {
+             let appDelegate = UIApplication.shared.windows.first
+                 if sender.isOn {
+                    appDelegate?.overrideUserInterfaceStyle = .dark
+                      return
+                 }
+             appDelegate?.overrideUserInterfaceStyle = .light
+             return
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
