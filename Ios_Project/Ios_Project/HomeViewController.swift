@@ -25,13 +25,19 @@ class HomeViewController: UIViewController {
         }
     }
     
+    @IBAction func settingsAction(_ sender: Any) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "settings") as? SettingsViewController {
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        self.title = "Films"
+        self.title = "Netfix"
         
         let item1 = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: nil)
         

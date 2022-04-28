@@ -123,7 +123,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cf8-Nl-3Gt">
                                 <rect key="frame" x="111" y="728" width="192" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Paramètres"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Paramètres">
+                                    <backgroundConfiguration key="background"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="settingsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uAX-8C-Oxi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -185,6 +190,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krE-lO-8v0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5128" y="826"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="WAj-7J-zut">
+            <objects>
+                <viewController storyboardIdentifier="settings" id="dgA-wi-ryh" customClass="SettingsViewController" customModule="Ios_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vSE-tr-BuW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rd7-3l-NxR">
+                                <rect key="frame" x="153" y="155" width="108" height="31"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Déconnexion">
+                                    <backgroundConfiguration key="background" cornerRadius="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logout:" destination="dgA-wi-ryh" eventType="touchUpInside" id="pnD-0K-iUV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IVh-3A-QUH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rd7-3l-NxR" firstAttribute="centerX" secondItem="IVh-3A-QUH" secondAttribute="centerX" id="Au4-PY-5MV"/>
+                            <constraint firstItem="rd7-3l-NxR" firstAttribute="top" secondItem="IVh-3A-QUH" secondAttribute="top" constant="68" id="iDE-yY-NiQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qpv-78-B17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5128" y="2393"/>
         </scene>
         <!--Genres View Controller-->
         <scene sceneID="BXz-8K-uDS">
@@ -771,6 +809,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
