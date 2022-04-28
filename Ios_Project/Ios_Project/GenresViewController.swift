@@ -10,7 +10,12 @@ import UIKit
 class GenresViewController: UIViewController {
 
     @IBAction func genresAction(_ sender: UIButton) {
-  
+        if let titleLabel = sender.titleLabel {
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "genresTable") as? GenresTableViewController {
+                vc.genre = titleLabel.text!
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
     
     override func viewDidLoad() {
