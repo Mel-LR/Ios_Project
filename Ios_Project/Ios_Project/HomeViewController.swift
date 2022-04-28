@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     
-    @IBAction func filmsAction(_ sender: Any) {
+    @IBAction func filmsAction(_ sender: UIButton) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "films") as? FilmsTableViewController {
             
             self.navigationController?.pushViewController(vc, animated: true)
@@ -18,14 +18,14 @@ class HomeViewController: UIViewController {
     }
     
     
-    @IBAction func genresAction(_ sender: Any) {
+    @IBAction func genresAction(_ sender: UIButton) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "genres") as? GenresViewController {
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
-    @IBAction func settingsAction(_ sender: Any) {
+    @IBAction func settingsAction(_ sender: UIButton) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "settings") as? SettingsViewController {
             
             self.navigationController?.pushViewController(vc, animated: true)
