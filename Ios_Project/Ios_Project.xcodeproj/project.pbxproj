@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E709CA87281A814400E52B40 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E709CA86281A814400E52B40 /* SearchTableViewController.swift */; };
+		84746799281A87290048AC2F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84746798281A87290048AC2F /* SettingsViewController.swift */; };
 		E7DAF58F281823B500DA29C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DAF58E281823B500DA29C7 /* AppDelegate.swift */; };
 		E7DAF591281823B500DA29C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DAF590281823B500DA29C7 /* SceneDelegate.swift */; };
 		E7DAF593281823B600DA29C7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DAF592281823B600DA29C7 /* LoginViewController.swift */; };
@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E709CA86281A814400E52B40 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		84746798281A87290048AC2F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E7DAF58B281823B500DA29C7 /* Ios_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ios_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DAF58E281823B500DA29C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7DAF590281823B500DA29C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,9 +75,9 @@
 				E7DAF5A62818405000DA29C7 /* FilmsTableViewController.swift */,
 				E7DAF5AC2819290C00DA29C7 /* GenresViewController.swift */,
 				E7DAF5AE2819293D00DA29C7 /* GenresTableViewController.swift */,
-				E709CA86281A814400E52B40 /* SearchTableViewController.swift */,
 				E7DAF5B0281991A900DA29C7 /* Movie.swift */,
 				E7DAF594281823B600DA29C7 /* Main.storyboard */,
+				84746798281A87290048AC2F /* SettingsViewController.swift */,
 				E7DAF597281823B900DA29C7 /* Assets.xcassets */,
 				E7DAF599281823B900DA29C7 /* LaunchScreen.storyboard */,
 				E7DAF59C281823B900DA29C7 /* Info.plist */,
@@ -157,7 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DAF5AD2819290C00DA29C7 /* GenresViewController.swift in Sources */,
-				E709CA87281A814400E52B40 /* SearchTableViewController.swift in Sources */,
 				E7DAF593281823B600DA29C7 /* LoginViewController.swift in Sources */,
 				E7DAF58F281823B500DA29C7 /* AppDelegate.swift in Sources */,
 				E7DAF5A72818405000DA29C7 /* FilmsTableViewController.swift in Sources */,
@@ -165,6 +164,7 @@
 				E7DAF5AF2819293D00DA29C7 /* GenresTableViewController.swift in Sources */,
 				E7DAF5B1281991A900DA29C7 /* Movie.swift in Sources */,
 				E7DAF5A32818375D00DA29C7 /* HomeViewController.swift in Sources */,
+				84746799281A87290048AC2F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
