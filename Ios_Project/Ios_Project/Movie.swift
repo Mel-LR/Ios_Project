@@ -16,23 +16,25 @@ struct Movie {
     let description: String
     let studio: String
     let image: String
+    let rate: Int
 }
 
 extension Movie {
     init?(json: [String: Any]) {
-        guard let id = json["name"] as? Int,
+        guard
+            let id = json["id"] as? Int,
             let title = json["title"] as? String,
             let genre = json["genre"] as? String,
             let release = json["release"] as? String,
             let duration = json["duration"] as? String,
             let description = json["description"] as? String,
             let studio = json["studio"] as? String,
-            let image = json["image"] as? String
+            let image = json["image"] as? String,
+            let rate = json["rate"] as? Int
           
         else {
             return nil
         }
-
 
         self.id = id
         self.title = title
@@ -42,5 +44,6 @@ extension Movie {
         self.description = description
         self.studio = studio
         self.image = image
+        self.rate = rate
     }
 }

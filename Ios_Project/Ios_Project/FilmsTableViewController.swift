@@ -10,7 +10,7 @@ import UIKit
 class FilmsTableViewController: UITableViewController {
     
     
-    var browsers:[String] = []
+    var movieList:[Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,21 +25,20 @@ class FilmsTableViewController: UITableViewController {
                 print(error!.localizedDescription)
             } else {
                 if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-                    if let data = json as? [[String: AnyObject]] {                     
-                        for item in data {
-                            self.browsers.append(item["title"] as! String)
-                        }
-                        
+                    if let data = json as? [[String: Any]] {
+                        for movieData in data {
+                            let movie = Movie(json: movieData)
+                            self.movieList.append(movie!)
                         }
                     }
                 }
-
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-
             }
-            task.resume()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+
+        }
+        task.resume()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -57,7 +56,7 @@ class FilmsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.browsers.count
+        return self.movieList.count
     }
 
     
@@ -66,9 +65,7 @@ class FilmsTableViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.textLabel?.text = self.browsers[indexPath.row]
-        
-        print("section : \(indexPath.section) - row : \(indexPath.row)")
+        cell.textLabel?.text = self.movieList[indexPath.row].title
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.purple
@@ -79,7 +76,15 @@ class FilmsTableViewController: UITableViewController {
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "film") as? FilmViewController {
+            
+            vc.movie = self.movieList[indexPath.row]
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

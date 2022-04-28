@@ -9,27 +9,27 @@ import UIKit
 
 class GenresTableViewController: UITableViewController {
 
-    var genre = ""
-    var genres:[String] = []
+    var selectedGenre = ""
+    var sortedMoviesByGenre:[Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("Value of selected genre : ", genre)
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
                 
-        let url = URL(string: "http://localhost:3001/data/genre/"+genre)!
+        let url = URL(string: "http://localhost:3001/data/genre/"+selectedGenre)!
+        
                 
         let task = session.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error!.localizedDescription)
             } else {
                 if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-                    if let data = json as? [[String: AnyObject]] {
-                        for item in data {
-                            self.genres.append(item["title"] as! String)
+                    if let data = json as? [[String: Any]] {
+                        for movieData in data {
+                            let movie = Movie(json: movieData)
+                            self.sortedMoviesByGenre.append(movie!)
                         }
                     }
                 }
@@ -51,7 +51,7 @@ class GenresTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.genres.count
+        return self.sortedMoviesByGenre.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,9 +59,7 @@ class GenresTableViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.textLabel?.text = self.genres[indexPath.row]
-        
-        print("section : \(indexPath.section) - row : \(indexPath.row)")
+        cell.textLabel?.text = self.sortedMoviesByGenre[indexPath.row].title
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.systemGray
@@ -74,10 +72,9 @@ class GenresTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "login") as? LoginViewController {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "film") as? FilmViewController {
             
-            var film = self.genres[indexPath.row]
-            print(film)
+            vc.movie = self.sortedMoviesByGenre[indexPath.row]
             self.present(vc, animated: true, completion: nil)
         }
     }
