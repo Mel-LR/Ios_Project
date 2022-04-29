@@ -7,8 +7,14 @@
 
 import UIKit
 
-class GenresTableViewController: UITableViewController {
+class GenresTableViewCell: UITableViewCell{
+    @IBOutlet weak var genresImageView: UIImageView!
+    @IBOutlet weak var genresGenreLabel: UILabel!
+    @IBOutlet weak var genresTitleLabel: UILabel!
+}
 
+class GenresTableViewController: UITableViewController {
+    
     var selectedGenre = ""
     var sortedMoviesByGenre:[Movie] = []
     
@@ -55,18 +61,18 @@ class GenresTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "genresTableIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "genresTableIdentifier", for: indexPath) as! GenresTableViewCell
 
         // Configure the cell...
-        
-        cell.textLabel?.text = self.sortedMoviesByGenre[indexPath.row].title
+        cell.genresTitleLabel?.text = self.sortedMoviesByGenre[indexPath.row].title
+        cell.genresGenreLabel?.text = self.sortedMoviesByGenre[indexPath.row].genre
+        cell.genresImageView?.image = UIImage(data: try! Data(contentsOf: URL(string: self.sortedMoviesByGenre[indexPath.row].image)!))
         
         if indexPath.row % 2 == 0 {
-            cell.backgroundColor = UIColor.systemGray
+            cell.backgroundColor = UIColor(named: "kRed")
         } else {
-            cell.backgroundColor = UIColor.systemGray3
+            cell.backgroundColor = UIColor(named: "kYellow")
         }
-
         return cell
     }
     

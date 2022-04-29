@@ -7,11 +7,19 @@
 
 import UIKit
 
+class FilmsTableViewCell: UITableViewCell{
+    @IBOutlet weak var filmImageView: UIImageView!
+    @IBOutlet weak var filmTitleLabel: UILabel!
+    @IBOutlet weak var filmGenreLabel: UILabel!
+    
+}
+
 class FilmsTableViewController: UITableViewController {
     
     
     var movieList:[Movie] = []
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,18 +69,19 @@ class FilmsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "filmsTableIdentifer", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "filmsTableIdentifer", for: indexPath) as! FilmsTableViewCell
 
         // Configure the cell...
-        
-        cell.textLabel?.text = self.movieList[indexPath.row].title
+        cell.filmTitleLabel?.text = self.movieList[indexPath.row].title
+        cell.filmGenreLabel?.text = self.movieList[indexPath.row].genre
+        cell.filmImageView?.image = UIImage(data: try! Data(contentsOf: URL(string: self.movieList[indexPath.row].image)!))
         
         if indexPath.row % 2 == 0 {
-            cell.backgroundColor = UIColor.purple
+            cell.backgroundColor = UIColor(named: "kRed")
         } else {
-            cell.backgroundColor = UIColor.blue
+            cell.backgroundColor = UIColor(named: "kYellow")
         }
-
+        
         return cell
     }
     
