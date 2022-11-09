@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         
-        self.title = "Netfix"
+        self.title = "Netflop"
         
         let item1 = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: nil)
         
